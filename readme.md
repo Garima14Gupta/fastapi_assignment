@@ -18,18 +18,29 @@ This project is a FastAPI application that provides a set of RESTful APIs for ma
 - Uvicorn (ASGI server)
 - Python 3.x
 
+## Environment Variables
+
+Create a `.env` file in the root directory of your project to store your MongoDB connection URL. 
+
+1. **Create the `.env` file**:
+   ```bash
+   touch .env
+
+2. **.Add the MongoDB connection URL**:
+    Open the .env file and add the following line, replacing <your_mongo_url> with your actual MongoDB connection string:
+
 ## Setup Instructions
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/Garima14Gupta/fastapi_assignment>
    cd fastapi_assignment
    ```
 
 2. **Create a virtual environment**:
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scriptsctivate`
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 
 3. **Install dependencies**:
@@ -91,6 +102,17 @@ This project is a FastAPI application that provides a set of RESTful APIs for ma
 - **Delete Item by ID**: `DELETE /items/{id}`
   - **Path Parameter**: `id` (ObjectId of the item)
   - **Response**: `{ "msg": "Item deleted" }`
+
+- **Filter Items**: `POST /items/filter`
+  - **Query Parameters**: 
+    - `email_id` (Optional): Filter by email_id .
+    - `expiry_date` (Optional): Minimum expiry_date for filtering items.
+    - `insert_date` (Optional): Minimum insert date for filtering items.
+    - `quantity` (Optional): Minimum quantity for filtering items.
+
+- **Aggregate Items**: `GET /items/aggregate`
+  - **Response**: Aggregated data by email_id.
+
 
 ## Models
 
